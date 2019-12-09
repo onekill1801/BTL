@@ -48,6 +48,8 @@ int main(int argc, char *argv[])
     }
     printf("filename: %s\n", filename);
 
+    time_t start_t , end_t, total_t;
+    start_t = time(NULL);
     FILE *fp = fopen(filename, "wb");
     if (fp == NULL) 
     {
@@ -65,6 +67,9 @@ int main(int argc, char *argv[])
     close(sockfd);
     multiSend(filename,"10.10.2.2");
     multiSend(filename,"10.10.3.2");
+    end_t = time(NULL);
+    total_t = (int)(end_t- start_t);
+    printf("Tong thoi gian truyen file la : %ds\n",total_t );
     return 0;
 }
 
